@@ -1,0 +1,259 @@
+<HTML>
+<HEAD>
+	<TITLE>Space Invaders</TITLE>
+	<VERSION>1.0.0</VERSION>
+	<TYPE>Initialization</TYPE>
+</HEAD>
+
+<BODY>
+	<DIR>
+	<AI>AI</AI>                    <!-- Path where resides the Artificial Intelligence of the system-->
+	<MUSIC>sounds</MUSIC>
+	<SOUNDS>sounds</SOUNDS>
+	<TEXTURE>images</TEXTURE>      <!-- Path from application directory. Please, use "\\" insted of "\". -->
+	<GEOMETRY>models</GEOMETRY>    <!-- Path from application directory. Please, use "\\" insted of "\". -->
+	<LANGUAGE>Languages</LANGUAGE>
+    <LEVEL>Levels</LEVEL>
+    <CONFIG>Configuration</CONFIG>
+    </DIR>
+
+	<CHARACTER>                         <!-- Now is used the same character to all players -->
+		<NAME>PLAYER</NAME>
+		<EXPLOSION>500</EXPLOSION>	    <!-- Miliseconds this explosion lasts -->
+		<HEALTH>20</HEALTH>
+        <LIVES>3</LIVES>
+		<MESH>player.3ds</MESH>
+        <TEXTURE2D>player.bmp</TEXTURE2D>
+        <ACCELERATION>0.0001</ACCELERATION>
+        <SPEED> 
+		    <X>0.01</X>	<!--in units per milisecond-->
+		    <Y>0.0</Y>
+		    <Z>0.0</Z>
+	    </SPEED>
+	</CHARACTER>
+
+    <CHARACTER>
+		<NAME>LASER</NAME>              <!-- Now is used the same character to all lasers -->
+		<EXPLOSION>500</EXPLOSION>	    <!-- Miliseconds this explosion lasts -->
+		<HEALTH>20</HEALTH>
+		<MESH>fighter_laser.3ds</MESH>
+	</CHARACTER>
+
+    <CHARACTER>
+		<NAME>BACKGROUND</NAME>       <!-- Its used to represent the sky (Backgraund) -->
+		<MESH>sphere_ogive.3ds</MESH>
+        <TEXTURE3D>sphere_o.bmp</TEXTURE3D>
+	</CHARACTER>
+
+	<CHARACTER>
+		<NAME>SUPPLYSHIP</NAME>
+		<EXPLOSION>500</EXPLOSION>	    <!-- Miliseconds this explosion lasts -->
+		<HEALTH>500</HEALTH>
+		<MESH>supplyship.3ds</MESH>
+        <TEXTURE3D>f02_512.bmp</TEXTURE3D>
+        <TEXTURE2D>supplyship.bmp</TEXTURE2D>
+        <SPEED> 
+		    <X>0.002</X>	<!--in units per milisecond-->
+		    <Y>0.0</Y>
+		    <Z>0.0</Z>
+	    </SPEED>
+	</CHARACTER>
+
+    <CHARACTER>
+		<NAME>CIRCLESHIP</NAME>
+		<MESH>supplyship.3ds</MESH>
+        <TEXTURE3D>circleship.bmp</TEXTURE3D>
+        <TEXTURE2D>circleship.bmp</TEXTURE2D>
+        <VELOCITY>0.001</VELOCITY>
+		<RADIO>1</RADIO>
+		<CENTER> 
+		    <X>0.002</X>
+		    <Y>0.0</Y>
+		    <Z>0.0</Z>
+	    </CENTER>
+    </CHARACTER>
+
+    <CHARACTER>
+        <NAME>BUNKER</NAME>
+        <TEXTURE2D>PIXEL_VERT.BMP</TEXTURE2D>
+        <TEXTURE3D>PIXEL_VERT3D.BMP</TEXTURE3D>
+    </CHARACTER>
+
+	<CHARACTER>
+		<NAME>SHIP</NAME>
+		<EXPLOSION>1000</EXPLOSION>	    <!-- Miliseconds this explosion lasts -->
+		<HEALTH>25</HEALTH>
+		<MESH>ship.3ds</MESH>
+        <TEXTURE3D>s02_5121.bmp</TEXTURE3D>
+        <ANIMATION2D> <!-- Animation (0) corresponds to CTM_ANI2SHIP_HIGH of CTM_Animations -->
+            <NAME>ANI2SHIP_HIGH</NAME>
+            <TYPE>ANITYPE_CICLIC</TYPE>             <!-- ANITYPE_CICLIC, ANITYPE_PINGPONG, ANITYPE_SERIAL -->
+            <PERIODE>1000</PERIODE>                 <!-- Miliseconds -->
+            <TEXTURE2D>ship1.bmp</TEXTURE2D>
+            <TEXTURE2D>ship1_b.bmp</TEXTURE2D>
+        </ANIMATION2D>
+        <ANIMATION2D> <!-- Animation (1) corresponds to CTM_ANI2SHIP_MIDDLE of CTM_Animations -->
+            <NAME>ANI2SHIP_MIDDLE</NAME>
+            <TYPE>ANITYPE_CICLIC</TYPE>             <!-- ANITYPE_CICLIC, ANITYPE_PINGPONG, ANITYPE_SERIAL -->
+            <PERIODE>100</PERIODE>                 <!-- Miliseconds -->
+            <TEXTURE2D>ship2.bmp</TEXTURE2D>
+            <TEXTURE2D>ship2_b.bmp</TEXTURE2D>
+        </ANIMATION2D>
+        <ANIMATION2D> <!-- Animation (2) corresponds to CTM_ANI2SHIP_LOW of CTM_Animations -->
+            <NAME>ANI2SHIP_LOW</NAME>
+            <TYPE>ANITYPE_CICLIC</TYPE>             <!-- ANITYPE_CICLIC, ANITYPE_PINGPONG, ANITYPE_SERIAL -->
+            <PERIODE>500</PERIODE>                 <!-- Miliseconds -->
+            <TEXTURE2D>ship3.bmp</TEXTURE2D>
+            <TEXTURE2D>ship3_b.bmp</TEXTURE2D>
+        </ANIMATION2D>
+        <SPEED> 
+		    <X>0.001</X>	<!--in units per milisecond-->
+		    <Y>0.0</Y>
+		    <Z>0.0</Z>
+	    </SPEED>
+	</CHARACTER>
+
+	<SCORES>
+		 <NAME>PEPE</NAME>
+		 <SCORE>15236</SCORE>
+		 <NAME>LUIS</NAME>
+		 <SCORE>10256</SCORE>
+		 <NAME>ANDRES</NAME>
+		 <SCORE>9874</SCORE>
+         <NAME>JUANA</NAME>
+         <SCORE>39874</SCORE>
+	</SCORES>
+
+	<!-- Other characters in the game does not need to be initialized by default 
+        If not present, by default, there is no collision allowed
+    -->
+
+    <COLLISION_TABLE>
+        <COLLISION>
+            <CHARACTER>BONUS</CHARACTER>
+            <COLLIDED>LASER</COLLIDED>
+            <COLLIDED>PLAYER</COLLIDED>
+            <COLLIDED>REACTOR</COLLIDED>
+        </COLLISION>
+
+        <COLLISION>
+            <CHARACTER>BRICK</CHARACTER>
+            <COLLIDED>CIRCLESHIP</COLLIDED>
+            <COLLIDED>LASER</COLLIDED>
+            <COLLIDED>PERSONAJE</COLLIDED>
+            <COLLIDED>PLAYER</COLLIDED>
+            <COLLIDED>REACTOR</COLLIDED>
+            <COLLIDED>SHOOT</COLLIDED>
+            <COLLIDED>SHIP</COLLIDED>
+            <COLLIDED>SUPPLYSHIP</COLLIDED>
+        </COLLISION>
+
+        <COLLISION>
+            <CHARACTER>BUNKER</CHARACTER>
+            <COLLIDED>CIRCLESHIP</COLLIDED>
+            <COLLIDED>LASER</COLLIDED>
+            <COLLIDED>PERSONAJE</COLLIDED>
+            <COLLIDED>PLAYER</COLLIDED>
+            <COLLIDED>REACTOR</COLLIDED>
+            <COLLIDED>SHOOT</COLLIDED>
+            <COLLIDED>SHIP</COLLIDED>
+            <COLLIDED>SUPPLYSHIP</COLLIDED>
+        </COLLISION>
+        
+        <COLLISION>
+            <CHARACTER>CIRCLESHIP</CHARACTER>
+            <COLLIDED>BRICK</COLLIDED>
+            <COLLIDED>BUNKER</COLLIDED>
+            <COLLIDED>LASER</COLLIDED>
+            <COLLIDED>PERSONAJE</COLLIDED>
+            <COLLIDED>PLAYER</COLLIDED>
+            <COLLIDED>REACTOR</COLLIDED>
+            <COLLIDED>SHOOT</COLLIDED>
+        </COLLISION>
+
+        <COLLISION>
+            <CHARACTER>LASER</CHARACTER>
+            <COLLIDED>BONUS</COLLIDED>
+            <COLLIDED>BRICK</COLLIDED>
+            <COLLIDED>BUNKER</COLLIDED>
+            <COLLIDED>CIRCLESHIP</COLLIDED>
+            <COLLIDED>PERSONAJE</COLLIDED>
+            <COLLIDED>PLAYER</COLLIDED>
+            <COLLIDED>REACTOR</COLLIDED>
+            <COLLIDED>SHIP</COLLIDED>
+            <COLLIDED>SHOOT</COLLIDED>
+            <COLLIDED>SUPPLYSHIP</COLLIDED>
+        </COLLISION>
+
+        <COLLISION>
+            <CHARACTER>PERSONAJE</CHARACTER>
+            <COLLIDED>BONUS</COLLIDED>
+            <COLLIDED>BRICK</COLLIDED>
+            <COLLIDED>BUNKER</COLLIDED>
+            <COLLIDED>CIRCLESHIP</COLLIDED>
+            <COLLIDED>SHIP</COLLIDED>
+            <COLLIDED>SHOOT</COLLIDED>
+            <COLLIDED>SUPPLYSHIP</COLLIDED>
+            <COLLIDED>PLAYER</COLLIDED>
+        </COLLISION>
+
+        <COLLISION>
+            <CHARACTER>PLAYER</CHARACTER>
+            <COLLIDED>BONUS</COLLIDED>
+            <COLLIDED>BRICK</COLLIDED>
+            <COLLIDED>BUNKER</COLLIDED>
+            <COLLIDED>PERSONAJE</COLLIDED>
+            <COLLIDED>CIRCLESHIP</COLLIDED>
+            <COLLIDED>SHIP</COLLIDED>
+            <COLLIDED>SHOOT</COLLIDED>
+            <COLLIDED>SUPPLYSHIP</COLLIDED>
+        </COLLISION>
+
+        <COLLISION>
+            <CHARACTER>REACTOR</CHARACTER>
+            <COLLIDED>BONUS</COLLIDED>
+            <COLLIDED>BRICK</COLLIDED>
+            <COLLIDED>BUNKER</COLLIDED>
+            <COLLIDED>PERSONAJE</COLLIDED>
+            <COLLIDED>CIRCLESHIP</COLLIDED>
+            <COLLIDED>SHIP</COLLIDED>
+            <COLLIDED>SHOOT</COLLIDED>
+            <COLLIDED>SUPPLYSHIP</COLLIDED>
+        </COLLISION>
+
+        <COLLISION>
+            <CHARACTER>SHOOT</CHARACTER>
+            <COLLIDED>BRICK</COLLIDED>
+            <COLLIDED>BUNKER</COLLIDED>
+            <COLLIDED>PERSONAJE</COLLIDED>
+            <COLLIDED>CIRCLESHIP</COLLIDED>
+            <COLLIDED>LASER</COLLIDED>
+            <COLLIDED>PLAYER</COLLIDED>
+            <COLLIDED>REACTOR</COLLIDED>
+            <COLLIDED>SHIP</COLLIDED>
+            <COLLIDED>SUPPLYSHIP</COLLIDED>
+        </COLLISION>
+        
+        <COLLISION>
+            <CHARACTER>SHIP</CHARACTER>
+            <COLLIDED>BRICK</COLLIDED>
+            <COLLIDED>BUNKER</COLLIDED>
+            <COLLIDED>LASER</COLLIDED>
+            <COLLIDED>PLAYER</COLLIDED>
+            <COLLIDED>REACTOR</COLLIDED>
+            <COLLIDED>SHOOT</COLLIDED>
+        </COLLISION>
+
+        <COLLISION>
+            <CHARACTER>SUPPLYSHIP</CHARACTER>
+            <COLLIDED>BRICK</COLLIDED>
+            <COLLIDED>BUNKER</COLLIDED>
+            <COLLIDED>LASER</COLLIDED>
+            <COLLIDED>PLAYER</COLLIDED>
+            <COLLIDED>REACTOR</COLLIDED>
+            <COLLIDED>SHOOT</COLLIDED>
+        </COLLISION>
+</COLLISION_TABLE>
+
+</BODY>
+</HTML>

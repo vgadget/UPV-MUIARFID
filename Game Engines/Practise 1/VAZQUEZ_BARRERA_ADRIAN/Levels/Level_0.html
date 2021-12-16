@@ -1,0 +1,185 @@
+<HTML>
+<HEAD>
+    <TITLE>Space Invaders</TITLE>
+    <VERSION>1.0.0</VERSION>
+    <TYPE>Level</TYPE>
+    <LEVEL>0</LEVEL>
+</HEAD>
+<BODY>
+    <CHARACTER>
+        <NAME>GAME</NAME>
+        <RENDERMODE>3D</RENDERMODE>
+        <SIMULATIONMODE>CONTINUOUS</SIMULATIONMODE>     <!--DISCRETE or CONTINUOUS-->
+        <BOUNCE>1</BOUNCE>                              <!--Bounce Mode: 0->off, 1->active-->
+        <TIMERENDER>16.67</TIMERENDER>                  <!-- General Render Time-->
+        <TIMEUPDATE>16.67</TIMEUPDATE>                  <!-- General Update Time-->		
+    </CHARACTER>
+    
+    <CHARACTER>
+        <NAME>PERSONAJE</NAME>
+        <SPEED> 
+		    <X>0.001</X>	<!--in units per milisecond-->
+		    <Y>0.0</Y>
+		    <Z>0.0</Z>
+		</SPEED>
+         <POSITION>          <!--Always specify position before bricks in order to set properly bricks-->
+            <X>-2.0</X>
+            <Y>-4.5</Y>
+            <Z> 0.0</Z>
+        </POSITION>
+        <HEALTH>1</HEALTH>
+        <WEIGHT>50</WEIGHT>
+        <FUEL>50</FUEL>
+        <ARMS>4</ARMS>
+        <INMORTAL>1</INMORTAL>
+    </CHARACTER>
+
+    <!--Animation2D, if already exist, only is able to modify PERIODE and TYPE respect to initialization.html definition-->
+    <CHARACTER>
+        <NAME>PLAYER</NAME>
+        <HEALTH>20</HEALTH>
+        <EXPLOSION>500</EXPLOSION>
+        <LIVES>3</LIVES>
+        <MESH>player.3ds</MESH>
+    </CHARACTER>
+
+    <CHARACTER>
+        <NAME>CIRCLESHIP</NAME>
+        <VELOCITY>0.001</VELOCITY>
+		<RADIO>1</RADIO>
+        <CENTER> 
+		    <X>3.0</X>
+	    </CENTER>
+    </CHARACTER>
+
+    <CHARACTER>
+        <NAME>CIRCLESHIP</NAME>
+        <VELOCITY>0.001</VELOCITY>
+		<RADIO>1</RADIO>
+        <CENTER> 
+		    <X>-3.0</X>
+	    </CENTER>
+    </CHARACTER>
+
+    <CHARACTER>
+        <NAME>SUPPLYSHIP</NAME>
+        <SPEED> 
+		    <X>0.001</X>	<!--in units per milisecond-->
+		    <Y>0.0</Y>
+		    <Z>0.0</Z>
+		</SPEED>
+    </CHARACTER>
+
+    <CHARACTER>
+        <NAME>SUPPLYSHIP</NAME>
+        <SPEED> 
+		    <X>0.005</X>	<!--in units per second-->
+		    <Y>0.0</Y>
+		    <Z>0.0</Z>
+		</SPEED>
+    </CHARACTER>
+
+    <CHARACTER>
+        <NAME>NAVY</NAME>
+		<MOVEDOWN>1</MOVEDOWN>				<!--Enable(1)/Disable(0), Navy Ships move one line down if enabled-->
+		<SHOOTS>1</SHOOTS>					<!--Enable(1)/Disable(0), Navy Shoots (Supplyships and Circleships are included)-->
+        <NUMLINES>5</NUMLINES>
+        <FROM>                              <!--Position from which the ships are allocated. Upper - left corner-->
+            <X>-5.0</X>
+            <Y> 0.0</Y>
+            <Z> 0.0</Z>
+        </FROM>
+        <LINE>111111111111111</LINE>             <!-- 0=CS_NO_SHIP, 1=CS_HIGH1, 2=CS_HIGH2, 3=CS_HIGH3, 4=CS_MIDDLE, 5=CS_LOW -->
+        <LINE>222222222222222</LINE>
+        <LINE>222222222222222</LINE>
+        <LINE>333333333333333</LINE>
+        <LINE>444444444444444</LINE>
+        <SPEED> 
+		    <X>0.001</X>	<!--in units per second for each navy ship-->
+		    <Y>0.0</Y>
+		    <Z>0.0</Z>
+		</SPEED>
+    </CHARACTER>
+
+    <CHARACTER>
+        <NAME>BUNKER</NAME>
+        <TYPE>USER</TYPE>
+        <EXPLOSION>400</EXPLOSION>
+        <HEALTH>1</HEALTH>
+        <POSITION>          <!--Always specify position before bricks in order to set properly bricks-->
+            <X>-5.0</X>
+            <Y>-4.5</Y>
+            <Z> 0.0</Z>
+        </POSITION>
+        <!--Original Space Invaders bunker shape-->
+        <LINE>00011111111000</LINE>
+        <LINE>00111111111100</LINE>
+        <LINE>01111111111110</LINE>
+        <LINE>11111111111111</LINE>
+        <LINE>11111111111111</LINE>
+        <LINE>11111000011111</LINE>
+        <LINE>11110000001111</LINE>
+        <LINE>11100000000111</LINE>
+    </CHARACTER>
+    <CHARACTER>
+        <NAME>BUNKER</NAME>
+        <TYPE>USER</TYPE>            
+        <EXPLOSION>400</EXPLOSION>
+        <HEALTH>1</HEALTH>
+        <POSITION>          <!--Always specify position before bricks in order to set properly bricks-->
+            <X>-2.0</X>
+            <Y>-4.5</Y>
+            <Z> 0.0</Z>
+        </POSITION>
+        <!--Original Space Invaders bunker shape-->
+        <LINE>00111111111100</LINE>
+        <LINE>01111111111110</LINE>
+        <LINE>11111111111111</LINE>
+        <LINE>11111111111111</LINE>
+        <LINE>11111111111111</LINE>
+        <LINE>11111000011111</LINE>
+        <LINE>11110000001111</LINE>
+        <LINE>11100000000111</LINE>
+    </CHARACTER>
+    <CHARACTER>
+        <NAME>BUNKER</NAME>
+        <TYPE>USER</TYPE>
+        <EXPLOSION>400</EXPLOSION>
+        <HEALTH>1</HEALTH>
+        <POSITION>          <!--Always specify position before bricks in order to set properly bricks-->
+            <X> 1.0</X>
+            <Y>-4.5</Y>
+            <Z> 0.0</Z>
+        </POSITION>
+        <!--Original Space Invaders bunker shape-->
+        <LINE>00111111111100</LINE>
+        <LINE>01111111111110</LINE>
+        <LINE>11111111111111</LINE>
+        <LINE>11111111111111</LINE>
+        <LINE>11111111111111</LINE>
+        <LINE>11111000011111</LINE>
+        <LINE>11110000001111</LINE>
+        <LINE>11100000000111</LINE>
+    </CHARACTER>
+    <CHARACTER>
+        <NAME>BUNKER</NAME>
+        <TYPE>USER</TYPE>
+        <EXPLOSION>400</EXPLOSION>
+        <HEALTH>1</HEALTH>
+            <POSITION>          <!--Always specify position before bricks in order to set properly bricks-->
+            <X> 4.0</X>
+            <Y>-4.5</Y>
+            <Z> 0.0</Z>
+        </POSITION>
+        <!--Original Space Invaders bunker shape-->
+        <LINE>00111111111100</LINE>
+        <LINE>01111111111110</LINE>
+        <LINE>11111111111111</LINE>
+        <LINE>11111111111111</LINE>
+        <LINE>11111111111111</LINE>
+        <LINE>11111000011111</LINE>
+        <LINE>11110000001111</LINE>
+        <LINE>11100000000111</LINE>
+    </CHARACTER>
+</BODY>
+</HTML>

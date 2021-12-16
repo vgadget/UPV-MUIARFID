@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\API">
+      <UniqueIdentifier>{6ce4d50c-fa84-42a9-ba6d-123c7040ec3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Space Invaders">
+      <UniqueIdentifier>{e6030fe4-1df3-413d-a8bc-100dd62e3882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\API">
+      <UniqueIdentifier>{926b35b9-b0ec-4d51-aeb0-f3466d29e0b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Space Invaders">
+      <UniqueIdentifier>{a0884368-59cf-4a3f-844e-fee67cbe538e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\API\Particles">
+      <UniqueIdentifier>{30b092f6-da59-4d5f-b304-0253a2f73eef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\API\Shaders">
+      <UniqueIdentifier>{078a79cc-78eb-4b64-8cd0-ea7d2d7f98dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\API\Txt2D3D">
+      <UniqueIdentifier>{cbfa4963-9a26-4248-87d0-1409f63c56d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\API\Textures">
+      <UniqueIdentifier>{02481b86-7ae2-4c8a-acae-34036dbdc03d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\API\Particles">
+      <UniqueIdentifier>{222275a4-f432-4adf-96a7-ebd26fb666cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\API\Shaders">
+      <UniqueIdentifier>{ee6c0772-e596-4e57-ab52-5a4e008c0d92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\API\Txt2D3D">
+      <UniqueIdentifier>{4689feef-062d-4913-816e-fbecf31b4c30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\API\Textures">
+      <UniqueIdentifier>{7bb7e321-6b9d-4d56-b4dd-233574c1070e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\API\gl">
+      <UniqueIdentifier>{e7b7fed9-0bf7-49ae-8d38-5d4b5a05086b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\API\gl">
+      <UniqueIdentifier>{d721e3c6-3870-448c-bc45-6dafb0622c35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\External">
+      <UniqueIdentifier>{d7aad6e7-3cfe-41ca-8790-4e90144a0352}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Space Invaders\Global">
+      <UniqueIdentifier>{11df5634-baaa-4792-9772-9a5eb6572d8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Space Invaders\Parsers">
+      <UniqueIdentifier>{b0e30bcb-7974-49aa-9ac1-510fcb40e534}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Space Invaders\Parsers">
+      <UniqueIdentifier>{804cb211-927f-4610-be43-6a4ec2f2c1e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Space Invaders\Characters">
+      <UniqueIdentifier>{d5ca94b0-8521-4f4c-858d-625b3e365223}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Space Invaders\Managers">
+      <UniqueIdentifier>{6bed630a-01be-4fd7-bb52-a80e7d4964cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Space Invaders\Characters">
+      <UniqueIdentifier>{f1b3761f-097b-45d3-ae3b-a858d11d6885}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Space Invaders\Managers">
+      <UniqueIdentifier>{753cb448-3a9e-4eee-8abd-2afc3fd7ace5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Space Invaders\Global">
+      <UniqueIdentifier>{61f2669d-f0d6-4cca-81b1-181d41d58e3f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="API\Particles\Explosion.h">
+      <Filter>Header Files\API\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="API\Shaders\shader.h">
+      <Filter>Header Files\API\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="API\Shaders\shaderManager.h">
+      <Filter>Header Files\API\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="API\Shaders\Shaders2\shader2.h">
+      <Filter>Header Files\API\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="API\Shaders\Shaders2\ShaderManager2.h">
+      <Filter>Header Files\API\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="API\Text2D3D\TextoGL.h">
+      <Filter>Header Files\API\Txt2D3D</Filter>
+    </ClInclude>
+    <ClInclude Include="API\Textures\Texture.h">
+      <Filter>Header Files\API\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="API\Textures\TextureAnimation.h">
+      <Filter>Header Files\API\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="API\Textures\TextureAnimationManager.h">
+      <Filter>Header Files\API\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="API\Textures\TexturesManager.h">
+      <Filter>Header Files\API\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="API\Application.h">
+      <Filter>Header Files\API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\FontsManager.h">
+      <Filter>Header Files\API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\Game.h">
+      <Filter>Header Files\API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\Network.h">
+      <Filter>Header Files\API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\ScoreManager.h">
+      <Filter>Header Files\API</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ExecutionMode.h">
+      <Filter>Header Files\Space Invaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameCharacters.h">
+      <Filter>Header Files\Space Invaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameSounds.h">
+      <Filter>Header Files\Space Invaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI.h">
+      <Filter>Header Files\Space Invaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene.h">
+      <Filter>Header Files\Space Invaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SIKeyboard.h">
+      <Filter>Header Files\Space Invaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SITexturesResources.h">
+      <Filter>Header Files\Space Invaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TextResources.h">
+      <Filter>Header Files\Space Invaders</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OpenGL\glTexFont.h">
+      <Filter>Header Files\API\gl</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GlobalDefs.h">
+      <Filter>Header Files\Space Invaders\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Global.h">
+      <Filter>Header Files\Space Invaders\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GlobalTiming.h">
+      <Filter>Header Files\Space Invaders\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="include\InitializationParser.h">
+      <Filter>Header Files\Space Invaders\Parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LevelParser.h">
+      <Filter>Header Files\Space Invaders\Parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Bonus.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Brick.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Bunker.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CircleShip.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Laser.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Player.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Reactor.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Ship.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shoot.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SupplyShip.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BonusManager.h">
+      <Filter>Header Files\Space Invaders\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Navy.h">
+      <Filter>Header Files\Space Invaders\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SIGame.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Boometer.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="API\ExplosiveChar.h">
+      <Filter>Header Files\API</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utilities.h">
+      <Filter>Header Files\Space Invaders\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SIMessage.h">
+      <Filter>Header Files\Space Invaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SICharactersFactory.h">
+      <Filter>Header Files\Space Invaders\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ShootsManager.h">
+      <Filter>Header Files\Space Invaders\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Main_SI_2013.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Personaje.h">
+      <Filter>Header Files\Space Invaders\Characters</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="API\Particles\Explosion.cpp">
+      <Filter>Source Files\API\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="API\Shaders\shader.cpp">
+      <Filter>Source Files\API\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="API\Shaders\shaderManager.cpp">
+      <Filter>Source Files\API\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="API\Shaders\Shaders2\shader2.cpp">
+      <Filter>Source Files\API\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="API\Shaders\Shaders2\ShaderManager2.cpp">
+      <Filter>Source Files\API\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="API\Text2D3D\TextoGL.cpp">
+      <Filter>Source Files\API\Txt2D3D</Filter>
+    </ClCompile>
+    <ClCompile Include="API\Textures\Texture.cpp">
+      <Filter>Source Files\API\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="API\Textures\TextureAnimation.cpp">
+      <Filter>Source Files\API\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="API\Textures\TextureAnimationManager.cpp">
+      <Filter>Source Files\API\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="API\Textures\TexturesManager.cpp">
+      <Filter>Source Files\API\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="API\Application.cpp">
+      <Filter>Source Files\API</Filter>
+    </ClCompile>
+    <ClCompile Include="API\FontsManager.cpp">
+      <Filter>Source Files\API</Filter>
+    </ClCompile>
+    <ClCompile Include="API\Game.cpp">
+      <Filter>Source Files\API</Filter>
+    </ClCompile>
+    <ClCompile Include="API\ScoreManager.cpp">
+      <Filter>Source Files\API</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameCharacters.cpp">
+      <Filter>Source Files\Space Invaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameSounds.cpp">
+      <Filter>Source Files\Space Invaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI.cpp">
+      <Filter>Source Files\Space Invaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene.cpp">
+      <Filter>Source Files\Space Invaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SIKeyboard.cpp">
+      <Filter>Source Files\Space Invaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SITexturesResources.cpp">
+      <Filter>Source Files\Space Invaders</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\LiteHTML\LiteHTMLAttributes.cpp">
+      <Filter>Source Files\External</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\LiteHTML\LiteHTMLEntityResolver.cpp">
+      <Filter>Source Files\External</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\LiteHTML\LiteHTMLReader.cpp">
+      <Filter>Source Files\External</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\OpenGL\glTexFont.cpp">
+      <Filter>Source Files\API\gl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LevelParser.cpp">
+      <Filter>Source Files\Space Invaders\Parsers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InitializationParser.cpp">
+      <Filter>Source Files\Space Invaders\Parsers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bonus.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Brick.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bunker.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CircleShip.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Laser.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Player.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reactor.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ship.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shoot.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SupplyShip.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SIGame.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BonusManager.cpp">
+      <Filter>Source Files\Space Invaders\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Navy.cpp">
+      <Filter>Source Files\Space Invaders\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\HRT\HRTimer.cpp">
+      <Filter>Source Files\External</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\HRT\HRTimerManager.cpp">
+      <Filter>Source Files\External</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\HRT\HRTimerStat.cpp">
+      <Filter>Source Files\External</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Boometer.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Global.cpp">
+      <Filter>Source Files\Space Invaders\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GlobalTiming.cpp">
+      <Filter>Source Files\Space Invaders\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="API\ExplosiveChar.cpp">
+      <Filter>Source Files\API</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SIMessage.cpp">
+      <Filter>Source Files\Space Invaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShootsManager.cpp">
+      <Filter>Source Files\Space Invaders\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SICharactersFactory.cpp">
+      <Filter>Source Files\Space Invaders\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>Source Files\Space Invaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Personaje.cpp">
+      <Filter>Source Files\Space Invaders\Characters</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\icon_app.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="SI.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="API\Shaders\shader_ClassDiagram.cd">
+      <Filter>Header Files\API\Shaders</Filter>
+    </None>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SI.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
