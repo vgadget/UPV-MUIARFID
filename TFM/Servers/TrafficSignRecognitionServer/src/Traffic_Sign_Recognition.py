@@ -10,7 +10,7 @@ epochs = 50
 learning_rate = 0.001
 batch_size = 1024
 
-model = models.load_model(f'./MODELS/{model_name}')
+model = models.load_model(f'{model_name}')
 
 optimizer = Adam(
     learning_rate = learning_rate, 
