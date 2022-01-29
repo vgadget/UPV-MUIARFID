@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{mathtools}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+         \textbf{\huge Artificial neural networks} \\        
+        \vspace{0.25cm}
+         {\LARGE Practical exercises }\\
+ 
+        \vfill
+        
+        
+
+        Adrián Vázquez Barrera \\
+        \vspace{0.25cm}
+        Polytechnic University of Valencia\\
+        \vspace{0.25cm}
+        \textbf{January 2022}
+             
+    \end{center}
+ \end{titlepage}
+
+\newpage
+
+\section*{Contexto}
+En esta práctica se pretenden construir sistemas de clasificación de imágenes utilizando perceptron multicapa y redes neuronales convolucionales, para los cuales se utilizarán MNIST y CIFAR10 respectivamente como conjuntos de datos.
+\\\\
+Para la realización de esta práctica, se han hecho (y documentado) modificaciones sobre los modelos vistos en clase hasta reducir (hasta cierto punto) el error. 
+
+\newpage
+
+\section*{MNIST MLP}
+
+\begin{tabularx}{\textwidth} { 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X |}
+    \hline
+    Iteración & Error \\
+   \hline
+    1 & 0.960\% \\
+    \hline
+    2 & 0.750\% \\
+    \hline
+    3 & 0.650\% \\
+    \hline
+\end{tabularx}
+\\\\\\
+Para la primera iteración, se aumentó el número de epochs y se decrementó el tamaño del batch. En la segunda iteración se consiguió bajar el error al añadir data augmentation. Por último, para la iteración 3 se eliminó una capa densa, se agregaron checkpoints durante el entrenamiento y además se añadieron atributos al data generator, así como una perfilación de los ya existentes.
+
+\section*{CIFAR CONV}
+
+\begin{tabularx}{\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X |}
+  \hline
+  Iteración & Error \\
+  \hline
+  1 & 18.680\% \\
+  \hline
+  2 & 11.900\% \\
+  \hline
+  3 & 6.640\% \\
+  \hline
+\end{tabularx}
+\\\\\\
+En el caso de CIFAR10, primero se agregó data augmentation lo que disminuyó el error, pero aun así no conseguía superar ninguno de los umbrales de la práctica. En la segunda iteración se consiguió aunentar el accuracy al añadir una capa convoluvional extra acompañada de Gaussian Noise y Batch Norm. 
+Para la última iteración se apostó por reutilizar la misma arquitectura VGG usada en el trabajo práctico extra. Una arquitectura existente que se ha probado efectiva para este tipo de tarea. Al cambiar la red anterior por una mucho más grande, se tuvo que aumentar el tamaño del batch y número de epochs en consecuencia. Adicionalmente, también se refinó el comportamiento del data-augmentation de la iteración anterior.
+\\
+
+\end{document}
+
