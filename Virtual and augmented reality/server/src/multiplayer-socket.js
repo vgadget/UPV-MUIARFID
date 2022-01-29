@@ -12,6 +12,9 @@ function listen(websocket) {
             console.log(message)
             clientWS.broadcast.emit("coordinates", "Hola mundo"); 
         });
+
+        console.log("Nueva conexion!");
+
     });
 }
 

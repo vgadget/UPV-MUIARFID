@@ -4,8 +4,9 @@
 require("dotenv").config();
 const express = require('express');
 
-const socketIO = require('socket.io');
+const WebSocket = require('ws')
 const networkModule = require('./dev/networkModule.js');
+const enc = new TextDecoder("utf-8");
 
 // Server
 const server = express();
@@ -13,14 +14,33 @@ const server = express();
 // Settings
 server.set('port', process.env.PORT || 8080); // SET PORT
 
-
-// START SERVER
-const server_listener = server.listen(server.get('port'), () => {
-  console.log("Server started on port: " + server.get('port') + ": ");
+const wss = new WebSocket.Server({ port: server.get('port') },()=>{
+  console.log('Server Started');
 });
 
-//Socket settings online multiplayer
-const online_socket = socketIO(server_listener);
-require('./multiplayer-socket.js')(online_socket);
+wss.broadcast = function broadcast(from, msg){
+  wss.clients.forEach(function each(client){
+    if (from != client){
+      client.send(msg);
+    }
+  });
+};
+
+wss.on('connection', function connection(ws) {
+
+  ws.on('message', (rawData) => {
+    var data = enc.decode(new Uint8Array(rawData));
+     console.log('Data received: ', data);
+     wss.broadcast(ws, data);
+  });
+});
+
+wss.on('listening',()=>{
+  console.log('Listening on ' + server.get('port'));
+});
+
+networkModule.getIP();
+
+
 
 networkModule.getIP();
