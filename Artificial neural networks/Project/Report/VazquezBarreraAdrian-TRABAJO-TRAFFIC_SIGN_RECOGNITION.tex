@@ -92,6 +92,20 @@ Se ha apostado por el optimizador Adam, y los siguientes valores para el Data Au
 \end{tabularx}
 \\\\\\
 Al mismo tiempo, la red guardará una copia del modelo cuando exista un epoch que mejore la tasa de acierto con respecto al conjunto de test.
+\\\\\\
+\begin{tabularx}{\textwidth} { 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X |}
+   \hline
+   \multicolumn{2}{|c|}{Experimentación} \\
+  \hline
+   4 capas convolucionales: CIFAR original de prácticas modificado. + Adam + Data Aug. & 96.3\%\\
+  \hline
+  Cambio de estructura a VGG + CutOut & 97.04 \%\\
+  \hline
+  Aumento y de atributos data augmentation, modificado Cut-Out + Mix-up  & 98.95 \%\\
+  \hline
+\end{tabularx}
 
 \newpage
 
@@ -99,8 +113,6 @@ Al mismo tiempo, la red guardará una copia del modelo cuando exista un epoch qu
 El desplieggue del sistema se ha llevado a cabo utilizando un contenedor docker a partir de una imagen vanilla de python 3.9.7, a la que se ha añadido TensorFlow 2.5.0, Numpy 1.19.5 y OpenCV. La aplicación además emplea las herramientas del lenguaje para habilitar un servidor HTTP que acepta peticiones POST.  
 \\\\
 Para realizar una predicción, será necesario enviar una petición web a la dirección IP de la máquina y adjuntar una imagen en formato PNG con la señal de tráfico a reconocer.   
-
-
 
 \newpage
 
