@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto GPC - Adrián Vázquez Barrera</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/proyectoGPC/general.css">
+    <script src="../bootstrap/js/bootstrap.js"></script>
+</head>
+
+<body class="bg-dark">
+
+    <div id="score" class="text-light">
+        <p>Score:</p>
+        <p id="score-points">0</p>
+    </div>
+
+    <section id="canvas">
+    </section>
+
+    <section id="dpad">
+
+        <table>
+
+            <tr>
+                <td colspan="2" id="upkey">
+                    <img onclick="fireKey('ArrowUp')" src="../images/proyectoGPC/arrow.png" alt="Up key">
+                </td>
+            </tr>
+
+            <tr>
+                <td id="leftkey">
+                    <img onclick="fireKey('ArrowLeft')" src="../images/proyectoGPC/arrow.png" alt="Up key">
+                </td>
+
+                <td id="rightkey">
+                    <img onclick="fireKey('ArrowRight')" src="../images/proyectoGPC/arrow.png" alt="Up key">
+                </td>
+
+            </tr>
+
+            <tr>
+                <td colspan="2" id="downkey">
+                    <img onclick="fireKey('ArrowDown')" src="../images/proyectoGPC/arrow.png" alt="Up key">
+                </td>
+            </tr>
+
+        </table>
+    </section>
+
+    <section id="gameover">
+
+        <h1>Game Over</h1>
+        <button type="button" class="btn btn-danger" onclick="location.reload();">Try again</button>
+    </section>
+
+    <section>
+        <video id="background" width="1920" height="1080" loop autoplay muted controls>
+            <source src="../videos/proyectoGPC/background.webm" type="video/webm">
+            <source src="../videos/proyectoGPC/background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <script src="../lib/jquery-1.8.3.min.js"></script>
+    <script src="../lib/cuon-matrix.js "></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/three.min_r96.js"></script>
+    <script src="../lib/GLTFLoader.js"></script>
+    <script src="../lib/OrbitControls.js"></script>
+    <script src="../js/proyectoGPC/snake/SnakeConfig.js"></script>
+    <script src="../js/proyectoGPC/snake/SnakeModel.js">
+    </script>
+    <script src="../js/proyectoGPC/snake/SnakeView.js">
+    </script>
+    <script>
+        main();
+    </script>
+    <script>
+
+        backgroundMusic = new Audio('../music/backgroundmusic.ogg');
+
+        if (typeof backgroundMusic.loop == 'boolean') {
+            backgroundMusic.loop = true;
+        }
+        else {
+
+            backgroundMusic.addEventListener('ended', function () {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+
+        }
+
+        backgroundMusic.play();
+    </script>
+
+</body>
+
+</html>

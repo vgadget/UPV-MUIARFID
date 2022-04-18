@@ -1,0 +1,115 @@
+.container
+{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    margin-top: 3em;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card
+{
+    margin: auto;
+    margin-bottom: 3em;
+    width: 18rem;
+}
+
+#canvas {
+    width: 100%;
+    text-align: center;
+    background-color: black;
+}
+
+#canvas >* {
+    margin: auto;
+}
+
+#score {
+   position: absolute;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   top: 0;
+   left: 0;
+   margin-top: 0;
+   overflow: hidden;
+   padding: 0.5vw;
+   background-color: rgba(0, 0, 0, 0.571);
+}
+
+#score p {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+
+#dpad {
+    padding: 1.2em;
+    width: 100%;
+}
+
+#dpad table {
+    margin: auto;
+    width: 100%;
+}
+
+#dpad table td {
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#dpad table td img {
+    height: 18vw;
+    margin: 0.6em;
+    filter: brightness(0) invert(1)
+}
+
+#dpad table #rightkey img{
+    transform: rotate(90deg);
+    margin-left: 0em;
+}
+
+#dpad table #leftkey img{
+    margin-right: 0em;
+    transform: rotate(270deg);
+}
+
+#dpad table #downkey img{
+    transform: rotate(180deg);
+}
+
+#gameover {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 2, 55, 0.434);
+    z-index: 100;
+}
+
+#gameover h1 {
+    position: relative;
+    top: 12vw;
+    margin: auto;
+    text-align: center;
+    font-size: 10vw;
+}
+
+#gameover button {
+    position: relative;
+    top: 18vw;
+    margin: auto;
+    text-align: center;
+    font-size: 4vw;
+    padding: 2vw;
+    padding-bottom: 0.5em;
+    border-radius: 20px;
+}
