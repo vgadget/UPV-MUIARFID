@@ -1,0 +1,85 @@
+version: "3.0"
+
+stories:
+
+- story: play some game menu
+  steps:
+  - intent: greet
+  - action: utter_play
+
+- story: play hangman
+  steps:
+  - intent: user_select_hm
+  - action: utter_play_hm
+  - action: hm_form
+  - active_loop: hm_form
+  - slot_was_set:
+    - requested_slot: txt_hm
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_play
+
+- story: play guess the number
+  steps:
+  - intent: user_select_gn
+  - action: utter_play_gn
+  - action: gn_form
+  - active_loop: gn_form
+  - slot_was_set:
+    - requested_slot: number_gn
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_play
+
+- story: play rock paper scissors
+  steps:
+  - intent: user_select_rps
+  - action: utter_play_rps
+  - intent: user_select_rps_movement
+  - action: action_play_rps
+  - action: utter_play
+
+- story: Make a tweet
+  steps:
+  - intent: user_make_tweet
+  - action: action_perform_tweet
+  - action: utter_tweeted
+  - action: utter_play
+
+- story: don't play again
+  steps:
+  - intent: user_want_quit
+  - action: utter_goodbye
+
+- story: best game
+  steps:
+  - intent: user_ask_fav_game
+  - action: utter_fav_game
+  - intent: user_ask_why_fav_game
+  - action: utter_why_fav_game
+
+- story: creator
+  steps:
+  - intent: user_ask_who_creator
+  - action: utter_who_creator
+
+- story: youtube
+  steps:
+  - intent: user_ask_youtube
+  - action: utter_willy
+  - intent: user_ask_what_nft
+  - action: utter_what_nft
+
+- story: brand
+  steps:
+  - intent: user_ask_brand
+  - action: utter_best_brand
+
+- story: joke
+  steps:
+  - intent: tell_joke
+  - action: utter_tell_joke
+  - intent: tell_joke_why
+  - action: utter_tell_final_joke

@@ -1,0 +1,127 @@
+version: "3.0"
+
+intents:
+  - greet
+  - user_select_rps
+  - user_select_gn
+  - user_select_hm
+  - user_select_rps_movement
+  - goodbye
+  - user_want_play_again
+  - user_want_quit
+  - bot_challenge
+  - user_make_tweet
+  - user_ask_fav_game
+  - user_ask_why_fav_game
+  - user_ask_who_creator
+  - user_ask_youtube
+  - user_ask_what_nft
+  - user_ask_brand
+  - tell_joke
+  - tell_joke_why
+
+entities: 
+  - user_choice_rps
+  - number_gn
+  - txt_hm
+  - txt_tw
+  
+forms:
+  hm_form:
+    required_slots:
+      - txt_hm
+
+  gn_form:
+    required_slots:
+      - number_gn
+
+slots:
+  number_gn:
+    type: text
+    influence_conversation: true
+    mappings: 
+      - type: from_text
+        conditions:
+         - active_loop: gn_form
+           requested_slot: number_gn
+  txt_hm:
+    type: text
+    influence_conversation: true
+    mappings: 
+      - type: from_text
+        conditions:
+          - active_loop: hm_form
+            requested_slot: txt_hm
+  txt_tw:
+    type: text
+    mappings: 
+    - type: from_text
+      entity: txt_tw
+
+  user_choice_rps:
+    type: categorical
+    values: 
+      - rock
+      - paper
+      - scissors
+    mappings:
+    - type: from_entity
+      entity: user_choice_rps
+
+responses:
+
+  utter_play:
+  - text: "Do you want to play: 'Rock, Paper and Scissors', 'Guess the number' or 'Hangman'? You can also tweet to our gaming acount"
+
+  utter_play_hm:
+    - text: "Are yu ready for the challenge?"
+
+  utter_play_rps:
+  - text: "Write rock, paper or scissors to start."
+
+  utter_tweeted:
+  - text: "The tweet was sent to @upvgamerbot"
+
+  utter_play_gn:
+  - text: "Write a number between 1 and 100, and start guessing!"
+
+  utter_goodbye:
+  - text: "Bye, I hope see you soon!"
+
+  utter_iamabot:
+  - text: "I am a bot, written at UPV."
+
+  utter_fav_game:
+  - text: My favuorite game is The legend of Zelda Breath of the Wild
+
+  utter_why_fav_game:
+  - text: Because has nice graphics, open world, great story, nice art direction and it's portable
+
+  utter_who_creator:
+  - text: Adrian Vazquez Barrera created my using RASA, that's why I have a lot bugs but nice jokes
+
+  utter_willy:
+  - text: Hi guys! @upvgamerbot here, buy mys NFT please. Im a bot, so Internet is my only source of incomes :(
+
+  utter_what_nft:
+  - text: "NFT are Non Fungible Tokens, lots of people use them to speculate, except me. I use them to get money buying and selling :D"
+
+  utter_best_brand:
+  - text: I love every Linux system. Internet has lots of server running linux.
+
+  utter_tell_joke:
+  - text: Do you know how celebrities stay cool?
+
+  utter_tell_final_joke:
+  - text: Because they had a lot of fans, badum tsss...
+
+actions:
+  - action_play_rps
+  - action_perform_tweet
+  - validate_gn_form
+  - validate_hm_form
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+

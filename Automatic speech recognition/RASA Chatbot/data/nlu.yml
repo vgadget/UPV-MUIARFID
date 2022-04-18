@@ -1,0 +1,144 @@
+version: "3.0"
+
+nlu:
+
+- intent: user_ask_fav_game
+  examples: |
+    - Whats your favourite game?
+    - Favorite game?
+    - Fav game?
+    - What game fo you like most?
+    - Any game yo love?
+    - Whats the best game?
+    - best game?
+
+- intent: user_ask_why_fav_game
+  examples: |
+    - Why is the best game?
+    - Why?
+    - why do you think that?
+    - What your reason to think that?
+    - What your reason?
+
+- intent: user_ask_who_creator
+  examples: |
+    - Whats your creator?
+    - Who is your creator?
+    - Who created you?
+    - Who's your father?
+
+- intent: user_ask_youtube
+  examples: |
+    - Do you have a youtube channel?
+    - Are you a fan of willy?
+    - Do you have twitch?
+
+- intent: user_ask_what_nft
+  examples: |
+    - What is a NFT
+    - NFT?
+    - I dont know what is NFT 
+    - NFT what?
+
+- intent: user_ask_brand
+  examples: |
+    - Which is the best PC
+    - best operative system?
+    - Best tech brand
+    - Do you like apple?
+    - Do you like windows?
+
+- intent: tell_joke
+  examples: |
+    - Tell me a joke
+    - Make me laugth
+    - Tell joke
+
+- intent: tell_joke_why
+  examples: |
+    - How?
+    - No
+    - No idea
+    - How they stay cool?
+    - Surprise me
+
+- intent: user_select_rps
+  examples: |
+    - RPS
+    - Rock Paper and Scissors
+    - I want to play Rock, paper and scissors
+    - Rock Paper Scissors
+
+- intent: user_select_gn
+  examples: |
+    - GN
+    - Guess Number
+    - I want to guess numbers
+
+- intent: user_select_hm
+  examples: |
+    - HM
+    - Hangman
+    - Guess word
+    - I want to play hangman
+
+- intent: user_make_tweet
+  examples: |
+    - Tweet that [Hey whats goin on](txt_tw)
+    - Tweet this [This gane is awesome](txt_tw)
+    - Pubish [This is a great day](txt_tw)
+
+- intent: user_select_rps_movement
+  examples: |
+    - [rock](user_choice_rps)
+    - [paper](user_choice_rps)
+    - [scissors](user_choice_rps)
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - let's go
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - morning
+- intent: goodbye
+  examples: |
+    - see you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - bye bye
+    - see you later
+- intent: user_want_play_again
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - ok
+- intent: user_want_quit
+  examples: |
+    - never
+    - I don't think so
+    - don't like that
+    - not really
+    - Stop playing
+    - I Want to quit
+    - I want to go back
+    - I dont want to continue
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
