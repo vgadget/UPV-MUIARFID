@@ -1,0 +1,12 @@
+# Created by Octave 6.2.0, Fri Sep 24 22:33:14 2021 CEST <adrianvazquezbarrera@Adrians-MacBook-Pro.local>
+# name: w
+# type: matrix
+# rows: 5
+# columns: 3
+ -0.4 0.5 -3.2
+ -4.05 -4.56 -8.6
+ 0.33 -3.28 -5.43
+ -8.5 -3.56 0.28
+ -3.58 -5.01 4.77
+
+
