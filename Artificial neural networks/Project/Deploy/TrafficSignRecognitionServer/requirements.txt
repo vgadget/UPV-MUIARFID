@@ -1,0 +1,7 @@
+tensorflow==2.5.0
+# get that GPU speed!
+#tensorflow-gpu
+numpy==1.19.5
+
+# Image libraries
+opencv-python
