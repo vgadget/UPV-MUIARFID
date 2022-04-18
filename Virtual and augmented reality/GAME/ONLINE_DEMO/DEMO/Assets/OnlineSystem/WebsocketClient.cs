@@ -5,7 +5,7 @@ using WebSocketSharp;
 
 public class WebsocketClient : MonoBehaviour
 {
-    public string SOCKET_URL_SERVER = "ws://localhost:8080"; 
+    public string SOCKET_URL_SERVER = "ws://supergolf.westeurope.cloudapp.azure.com:8080"; 
 
     private static WebSocket ws;
     private static List<string> data = new List<string>();
