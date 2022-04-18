@@ -1,0 +1,234 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{mathtools}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+         \textbf{\huge Statistical structured prediction} \\        
+        \vspace{0.25cm}
+         {\LARGE Question set (Part 1-A)}\\
+ 
+        \vfill
+        
+        
+
+        Adrián Vázquez Barrera \\
+        \vspace{0.25cm}
+        Polytechnic University of Valencia\\
+        \vspace{0.25cm}
+        \textbf{November 2021}
+             
+    \end{center}
+ \end{titlepage}
+
+\newpage
+
+\section*{Question 1}
+Para un lenguaje generado por una gramática probabilística, deben cumplirse tres condiciones para ser definido como lenguaje probabilístico:\begin{itemize}
+    \item La probabilidad \( \phi \)(x) debe ser cero si x no está definida en el lenguaje.
+    \item La probabilidad de los elementos definidos debe estar en el intervalo (0, 1].
+    \item La suma de todas las probabilidades debe ser 1.
+\end{itemize} 
+Hay gramáticas probabilísticas para las que, sus probabilidades de sus árboles de derivación no suman uno, lo que las hace inconsistentes. Si un lenguaje se produce utilizando una gramática inconsistente, la tercera condición no se cumple.
+\\\\
+Hay lenguajes probabilísticos (L, \( \phi \)) que no pueden ser generados por una gramática probabilística G\textsubscript{\( \theta \)} = (G, P). 
+\\\\
+Siguiendo el ejemplo visto en clase:
+    \begin{equation*}
+        \varphi(x) = \frac{1}{en!}
+        \end{equation*}
+La producción del lenguaje es exponencial. Una gramática está definida por un conjunto de reglas, lo que significa que el grado de las producciones es polinómico, aunque el número de combinaciones pueda ser infinito. Por lo tanto, no está garantizado que a cada \( \phi \)(x) se le pueda asignar correctamente un P\textsubscript{\( \theta \)}(x).
+
+\newpage
+
+\section*{Question 2}
+
+Three-augmented Naive Bayes classifier:
+\begin{equation*}
+        P(x_1^T) = P(y) \cdot P(x_1 |  y) \cdot  P(x_2 |  x_1  ,y) \cdot  P(x_3 |  x_1  ,y) \cdot P(x_4 |  x_3  ,y) 
+\end{equation*}
+\\
+Trigram Hidden Makov Model:
+\begin{equation*}
+    P(x_1^T,y_1^T ) = \prod\limits_{t=1}^{T} q(y_t | y_{t-2},y_{t-1} ) \cdot e(x_t |  y_t) = 
+\end{equation*}
+\begin{equation*}
+        (y_1 )\cdot e(x_1 |  y_1) \cdot q(y_2  | y_1 ) \cdot e(x_2 |  y_2) \cdot (y_3  | y_1,y_2 ) \cdot e(x_3 |  y_3) \cdot  \cdot (y_T | y_{T-2},y_{T-1} ) \cdot e(x_T |  y_T)
+\end{equation*}
+\\
+\section*{Question 3}
+\textbf{Definición:}
+\begin{equation*}
+    \beta_t(s) :=  \sum\limits_{ y_1^t ; y_t = s} \prod\limits_{i= t+1}^{T} \Psi_i(y_{i-2}, y_i, x_i)
+\end{equation*}
+\\
+\textbf{Inicialización:}
+\begin{equation*}
+    \beta_T(s) = 1
+\end{equation*}
+\textbf{Recursión:}
+\begin{equation*}
+    \beta_t(s) =  \sum\limits_{s' \in y} \Psi_{t+1}(y_{t-1} = s, y_{t+1} = s', x_{t+1}) \cdot \beta_{t+1}(s') 
+\end{equation*}
+\\
+\textbf{Resultado final:}
+\begin{equation*}
+    \beta(s) =  \sum\limits_{s \in y} \Psi_{1}(y_{-1} = \#, y_{1} = s, x_1) \cdot \beta_{1}(s) 
+\end{equation*}
+
+\newpage
+
+\section*{Question 4}
+La fórmula recursiva original del algoritmo inside se define como:
+\begin{equation*}
+    e(A,i,i+l) = \sum\limits_{B, C \in N} p(A \to BC) \sum\limits_{k = 1, ... , l-1} e(A,i,i+k) \cdot e(A,i+k,i+l)
+\end{equation*}
+\\
+Sabiendo que se trata de una "right-branching grammar", podemos establecer como constante el punto de corte k igual a 1.\\\\
+\textbf{Definición:} 
+\begin{equation*}
+    e(A,i,T) := P_{\theta}(A \xRightarrow{*}  x_{i+1} ... x_{T})
+\end{equation*}
+\textbf{Inicialización:}
+\\
+\begin{equation*}
+    e(A,i, i+1) = p(B \to b) \cdot \delta(b, x_{i+1})
+\end{equation*}
+\textbf{Recursión:}
+\\
+\begin{equation*}
+    e(A,i,T) = \sum\limits_{B, C \in N} p(A \to BC) \cdot p(B \to b) \cdot \delta(b, x_{i+1}) \cdot e(A,i+1, T)
+\end{equation*}
+\\
+\textbf{Resultado final:}
+\\
+\begin{equation*}
+   P_{\theta}(x) = e(S,0,T)
+\end{equation*}
+\\
+Al hacer sólo una llamada recursiva a la vez, el árbol de derivación generado se asemeja a un árbol binario desbalanceado. Por lo que podemos afirmar de que el coste computacional del algoritmo inside para las right-branching grammars es lineal.
+\\
+\newpage
+\section*{Question 5}
+\textbf{Definición:}
+\begin{equation*}
+    \alpha_t(s) :=  \sum\limits_{ y_1^t ; y_t = s} \prod\limits_{i=1}^{T} \Psi(y_{i-2}, y_{i-1}, y_i, x_i)
+\end{equation*}
+\\
+\textbf{Inicialización:}
+\begin{equation*}
+    \alpha_1(s) =  \Psi(y_{-1}, y_0, y_1 = s, x_1)
+\end{equation*}
+\textbf{Recursión:}
+\begin{equation*}
+    \alpha_t(s) =  \sum\limits_{s' \in y}  \alpha_{t-1}(s') \sum\limits_{s'' \in y} \Psi(y_{t-2} = s'', y_{t-1} = s', y_t = s, x_t)
+\end{equation*}
+\\
+\textbf{Resultado final:}
+\begin{equation*}
+    \alpha_t(s) =  \sum\limits_{s}  \alpha_t(s)
+\end{equation*}
+\\
+Al tener en cuenta ahora todos los dos posibles estados anteriores, se ha modificado la recursión en base al nuevo requerimiento. En este caso s' representa el conjunto de estados inmediatamente anteior al estado actual y s'' al conjunto de estados dos veces anterior. 
+
+\pagebreak
+\section*{Practical assignments}
+Para todos los modelos, el que proporciona la menor perplejidad para cualquier corpus es G3. El modelo G1 es peor que el G3, sin embargo, el modelo G2 es, con diferencia, el peor de todos ellos, con una perplejidad muy superior a la del G3, especialmente para los triángulos equiláteros, donde observamos que la perplejidad es incluso dos órdenes de magnitud superior a la del G3.
+\\\\
+\begin{tabularx}{\textwidth} { 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X |}
+   \hline
+   \multicolumn{4}{|c|}{Statistical evaluation (Perplexity)} \\
+   \hline
+      & EQ  & IS   & SC \\
+  \hline
+   G1 & 99095.20	& 26581.81 & 33618.35 \\
+   \hline
+   G2  & 635136.42 & 52217.60 & 43543.30 \\
+   \hline
+   G3  & 986.21 & 1254.90 & 1218.04 \\
+   \hline
+\end{tabularx}
+\\\\\\
+\textbf{Classification}
+\\\\
+Se puede observar como efectivamente el modelo G3 ofrece el menor error, sin embargo, los tres modelos fallan bastante en la clasificación global. 
+Cabe destacar que el modelo G2 es capaz de clasificar los triángulos equiláteros con el menor error, lo mismo ocurre con el modelo G3 y los triángulos equiláteros. Los triángulos isósceles son el talón de Aquiles común a todos los modelos.
+\\\\
+\begin{tabularx}{\textwidth} { 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X |}
+   \hline
+   \multicolumn{6}{|c|}{G1} \\
+   \hline
+     & EQ & IS & SC & Error & Error (\%) \\
+  \hline
+  EQ & 597 & 285 & 118 & 403 & 40.3\%\\
+  \hline
+  IS & 88 & 471 & 441 & 529 & 52.9\%\\
+  \hline
+  SC & 71 &	406 & 523 & 477 & 47.7\%\\
+  \hline
+  Error & \multicolumn{5}{|c|}{46.97\%}  \\
+  \hline
+\end{tabularx}
+\\\\\\
+\begin{tabularx}{\textwidth} { 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X |}
+   \hline
+   \multicolumn{6}{|c|}{G2} \\
+   \hline
+     & EQ & IS & SC & Error & Error (\%) \\
+  \hline
+  EQ & 281 & 211 & 508 & 719 & 71.9\%\\
+  \hline
+  IS & 71 & 215 & 714 & 785 & 78.5\%\\
+  \hline
+  SC & 81 & 190 & 729 & 271 & 27.1\%\\
+  \hline
+  Error & \multicolumn{5}{|c|}{59.17\%}  \\
+  \hline
+\end{tabularx}
+\\\\\\
+\begin{tabularx}{\textwidth} { 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X |}
+   \hline
+   \multicolumn{6}{|c|}{G3} \\
+   \hline
+     & EQ & IS & SC & Error & Error (\%) \\
+  \hline
+  EQ & 789 & 102 & 109 & 211 & 21.1\%\\
+  \hline
+  IS & 178 & 512 & 310 & 488 & 48.8\%\\
+  \hline
+  SC & 7106 & 421 & 473 & 527 & 52.7\%\\
+  \hline
+  Error & \multicolumn{5}{|c|}{40.87\%}  \\
+  \hline
+\end{tabularx}
+
+\end{document}
+
