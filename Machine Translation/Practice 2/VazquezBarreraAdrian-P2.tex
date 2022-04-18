@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{mathtools}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+         \textbf{\huge Machine translation} \\        
+        \vspace{0.25cm}
+         {\LARGE NMT-Keras }\\
+ 
+        \vfill
+        
+        
+
+        Adrián Vázquez Barrera \\
+        \vspace{0.25cm}
+        Polytechnic University of Valencia\\
+        \vspace{0.25cm}
+        \textbf{January 2022}
+             
+    \end{center}
+ \end{titlepage}
+
+\newpage
+
+\section*{Introducción}
+En esta práctica se pretenden construir sistemas de traducción utilizando pares de 
+frases bilingües.  Para este fin, utilizaremos la NMT-Keras 
+para entrenar modelos de traducción basados en redes neuronales recurrentes, LSTM y transformers.
+
+\section*{Contexto}
+Para la realización de esta práctica, utilizaremos un conjunto de datos bilingüe de la tarea EuTrans para Español-Inglés, en el contexto de un turista frente al mostrador de un hotel.
+
+\newpage
+
+\section*{Ejercicio 1}
+Se solicita estudiar el comportamiento de la red al variar el tamaño de la capa de embeddings tanto del encoder como del decoder.
+\\\\
+Como puede observarse en la tabla de resultados, vemos como el mejor valor se encuentra en torno a los 256. Debemos tener en cuenta que estamos ante un corpus bastante pequeño, por lo que es de esperar que un tamaño para capa de embeddings muy alto, no sea capaz de aprender las reglas del idioma.
+\\\\\
+\begin{tabularx}{\textwidth} { 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X |}
+    \hline
+    Embedding size & BLEU \\
+   \hline
+    32 & 87.74\%\\
+    \hline
+    64 & 94.00\%\\
+    \hline
+    128 & 97.70\% \\
+    \hline
+    256 & 98.20\% \\
+    \hline
+    512 & 97.10\% \\
+    \hline
+\end{tabularx}
+
+\section*{Ejercicio 2}
+
+Se pide analizar el comportamiento de la red al modificar el tamaño del modelo LSTM. Para ello se ha optado por mantener el tamaño óptimo de embeddings obtenido en ejercicio anterior.
+Tras obtener los resultados, vemos como los mejores valores se encuentran en un tamaño de LSTM de entre 128 y 256. De nuevo, puede deberse al reducido tamaño del corpus de entrenamiento, ya que un valor mayor puede inducir al sobre-ajuste.
+\\\\
+\begin{tabularx}{\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X |}
+  \hline
+  Encoder/decoder size & BLEU \\
+ \hline
+  32 & 97.24\%\\
+  \hline
+  64 & 98.47\%\\
+  \hline
+  128 & 98.29\% \\
+  \hline
+  256 & 97.64\% \\
+  \hline
+  512 & 89.69\% \\
+  \hline
+\end{tabularx}
+
+\newpage
+
+\section*{Ejercicio 3}
+
+En este ejercicio se pide analizar el comportamiento de la red al utilizar varios optimizadores. Para que la comparación sea justa se ha establecido un máximo de 5 epochs.
+\\\\
+\begin{tabularx}{\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X |}
+  \hline
+  Optimizador & BLEU \\
+ \hline
+  Adam & 98.47\%\\
+  \hline
+  Adagrad & 13.62\%\\
+  \hline
+  Adadelta & 1\% \\
+  \hline
+\end{tabularx}
+\\\\\\
+A la vista de los resultados vemos como Adam presenta la convergencia más rápida, tanto Adagrad como sobre todo Adadelta presentan un BLEU mucho más bajo en las mismas condiciones.
+
+\section*{Ejercicio 4}
+
+Al utilizar una arquitectura basada en transformmers se observa una disminución del BLEU con respecto a lo visto en redes LSTM, a cambio, cabe destacar el grado de paralelismo que ofrecen los modelos transformer, lo que agiliza el entrenamiento de dichas redes.
+\\\\
+\begin{tabularx}{\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X |}
+  \hline
+  Model size & BLEU \\
+ \hline
+  32 & 63.51\%\\
+  \hline
+  64 & 87.50\%\\
+  \hline
+  128 & 90.25\% \\
+  \hline
+  256 & 86.63\% \\
+  \hline
+\end{tabularx}
+
+
+\end{document}
+

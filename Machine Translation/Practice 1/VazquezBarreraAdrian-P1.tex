@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{mathtools}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+         \textbf{\huge Machine translation} \\        
+        \vspace{0.25cm}
+         {\LARGE Sentence based statistical translation: MOSES }\\
+ 
+        \vfill
+        
+        
+
+        Adrián Vázquez Barrera \\
+        \vspace{0.25cm}
+        Polytechnic University of Valencia\\
+        \vspace{0.25cm}
+        \textbf{January 2022}
+             
+    \end{center}
+ \end{titlepage}
+
+\newpage
+
+\section*{Introducción}
+En esta práctica se pretenden construir sistemas de traducción utilizando pares de 
+frases bilingües.  Para este fin, utilizaremos la herramienta 
+Moses para entrenar modelos estadísticos. En la próxima sesión, se construirá un sistema similar basado en 
+redes neuronales con el toolkit NMT-Keras.
+
+\section*{Contexto}
+Para la realización de esta práctica, utilizaremos un conjunto de datos bilingüe de la tarea EuTrans para Español-Inglés, en el contexto de un turista frente al mostrador de un hotel.
+El corpus ya se encuentra tokenizado por lo que no será necesario someterlo a este proceso, no obstante, sí es conveniente limpiarlo.
+\\\\
+También será necesario crear un modelo de n-gramas para el idioma de destino, en este caso se ha apostado por un modelo de trigramas y Kneser-Kney como método de descuento.
+\\\\
+Con a penas 5 iteraciones y empleando los valores por defecto de los parámetros vistos en la práctica, obtenemos un BLEU del 92.02\%. 
+
+\newpage
+
+\section*{Ejercicio 1}
+
+El ejercicio 1 radica en entrenar el modelo sin el posterior ajuste de pesos log-lineal. Como cabría esperar, el BLEU obtenido cae hasta los 88.42. Esto se debe a que MERT (o MIRA como veremos en ejercicios posteriores) ayuda al ajuste de los pesos dado un modelo de desarrollo, haciéndolo dependiente de este y añade coste computacional extra.
+
+\section*{Ejercicio 2}
+
+Con el doble de iteraciones la mejoría es muy leve y con cincuenta o cien apreciamos el efecto del sobre-ajuste, perdiendo incluso calidad en la traducción.
+\\\\ 
+\begin{tabularx}{\textwidth} { 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X |}
+    \hline
+    \multicolumn{2}{|c|}{ MERT } \\
+   \hline
+    Iteraciones & BLEU\\
+  \hline
+    5 & 92.02\%\\
+  \hline
+    10 & 92.52\%\\
+  \hline
+    50 & 91.83\% \\
+  \hline
+    100 & 91.93\% \\
+   \hline
+\end{tabularx}
+
+\newpage
+
+\section*{Ejercicio 3}
+
+Analizando los resultados obtenidos reflejados en la tabla, vemos como es imprescindible contar con un buen modelo de lenguaje para entrenar modelos de traducción estadísticos.
+\\\\
+\begin{tabularx}{\textwidth} { 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X |}
+    \hline
+    N-grama & BLEU\\
+  \hline
+    1 & 0\%\\
+  \hline
+    2 & 88.79\%\\
+  \hline
+    3 & 92.02\% \\
+  \hline
+    4 & 89.05\% \\
+   \hline
+\end{tabularx}
+\\\\\\
+Con unigramas es imposible conseguir un modelo útil, porque es como no tener modelo de lenguaje. El uso de bigramas empeora el BLEU obtenido, esto se debe a la falta de historia pasada y contexto previo de las oraciones.
+Con cuatrigramas también se experimenta una caída en el BLEU, esto es debido a que, a mayor número de n-gramas obtenemos un menor número de combinaciones no vistas en el entrenamiento.
+
+\section*{Ejercicio 4}
+
+Según el manual de MOSES, cuando se proporciona el flag --batch-mira, se reemplaza la llamada a MERT por una a kbmira.
+De esta forma, se activa el parámetro de tunnning k-best batch MIRA, que lleva a cabo online-training utilizando listas k-mejores agregadas como una aproximación del espacio de búsqueda.
+\\\\
+El BLEU obtenido al realizar esta modificación es de 90.95, que es inferior al obtenido con MERT. No obstante, debemos tener en cuenta que MIRA converge más rápido con una solución bastante buena considerando su menor coste computacional. 
+
+\newpage
+
+\section*{Ejercicio 5}
+
+El método de Kneser-Ney utilizado originalmente, ofrece mejores resulados que Good Turing y Unmodified Kneser-Ney. Esto es debido a que el primero emplea un contador de los elementos vistos una vez para imputar una probabilidad a los elementos no vistos. Por otro lado, Kneser-Ney se basa en el contexto para imputar dicha probabilidad. En este sentido, se comprende que la versión más refinada del método sea la que mejor funcione, aunque la diferencia sea poco significativa.  
+\\\\
+\begin{tabularx}{\textwidth} { 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X |}
+    \hline
+    Método & BLEU\\
+  \hline
+  Good Turing & 89.85\%\\
+  \hline
+  Unmodified Kneser-Ney & 91.80\%\\
+  \hline
+\end{tabularx}
+\\\\
+\section*{Ejercicio 6}
+
+Para aplicar moses monótono, es necesario establecer el parámetro -distortion-limit
+a cero, o lo que es lio mismo, no reordenar. Con esto se consigue una traducción literal, con un BLEU de 91.05. 
+\\\\
+Es evidente que este tipo de traducción puede ser más rápida, pero penaliza el BLEU obtenido. Sobre todo si traducimos del Español a Inglés donde el orden de los elementos gramaticales cambia a la hora de construir las frases.
+
+\newpage
+
+\section*{Bibliografía}
+
+1. Philipp Koehn. MOSES: Statistical Machine Translation System. User Manual and Code Guide. University of Edinburgh. 2014. 
+\\
+http://www.statmt.org/moses/manual/manual.pdf
+~\\\\
+2. SRILM - The SRI Language Modeling Toolkit
+\\
+http://www.speech.sri.com/projects/srilm/
+
+\end{document}
+
